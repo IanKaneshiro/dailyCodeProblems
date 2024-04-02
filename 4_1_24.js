@@ -30,8 +30,6 @@ var once = function (fn) {
     if (!run) {
       run = true;
       return fn(...args);
-    } else {
-      return undefined;
     }
   };
 };
