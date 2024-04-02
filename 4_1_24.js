@@ -33,3 +33,17 @@ var once = function (fn) {
     }
   };
 };
+
+function memoize(fn) {
+  const memoizedValues = {};
+  return function (...args) {
+    let val = String(args);
+    if (memoizedValues[val] !== undefined) {
+      return memoizedValues[val];
+    } else {
+      let res = fn(...args);
+      memoizedValues[val] = res;
+      return res;
+    }
+  };
+}
