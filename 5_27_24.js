@@ -22,9 +22,25 @@ const sampleInput2 = [
 ];
 
 const overlappingIntervals = (arr) => {
+  const returnArr = [];
   // sort the array
+  const sortedArray = arr.sort((a, b) => a[0] - b[0]);
   // interate through the array keeping track of the last value of the prev and the first of the current/
+  let start = sortedArray[0][0];
+  let end = sortedArray[0][1];
+  for (let i = 1; i < arr.length; i++) {
+    const subArray = sortedArray[i];
+    if (subArray[0] <= end) {
+      end = subArray[1];
+    } else {
+      returnArr.push([start, end]);
+      start = subArray[0];
+      end = subArray[1];
+    }
+  }
+  return returnArr;
 };
 
-overlappingIntervals(sampleInput); // [[1,3], [4,10], [20,25]]
-overlappingIntervals(sampleInput2); // [[1,8], [10,20]]
+console.log(overlappingIntervals(sampleInput)); // [[1,3], [4,10], [20,25]]
+
+console.log(overlappingIntervals(sampleInput2)); // [[1,8], [10,20]]
