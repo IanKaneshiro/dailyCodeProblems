@@ -21,24 +21,30 @@ const sampleInput2 = [
   [10, 20],
 ];
 
-const overlappingIntervals = (arr) => {
-  const returnArr = [];
-  // sort the array
-  const sortedArray = arr.sort((a, b) => a[0] - b[0]);
-  // interate through the array keeping track of the last value of the prev and the first of the current/
-  let start = sortedArray[0][0];
-  let end = sortedArray[0][1];
-  for (let i = 1; i < arr.length; i++) {
-    const subArray = sortedArray[i];
-    if (subArray[0] <= end) {
-      end = subArray[1];
+const overlappingIntervals = (intervals) => {
+  // Step 1: Sort the intervals based on the start time
+  intervals.sort((a, b) => a[0] - b[0]);
+
+  // Step 2: Initialize the merged intervals array
+  const mergedIntervals = [];
+
+  for (let interval of intervals) {
+    // If mergedIntervals is empty or there is no overlap, simply append the interval
+    if (
+      mergedIntervals.length === 0 ||
+      mergedIntervals[mergedIntervals.length - 1][1] < interval[0]
+    ) {
+      mergedIntervals.push(interval);
     } else {
-      returnArr.push([start, end]);
-      start = subArray[0];
-      end = subArray[1];
+      // There is overlap, so merge the current interval with the last one in mergedIntervals
+      mergedIntervals[mergedIntervals.length - 1][1] = Math.max(
+        mergedIntervals[mergedIntervals.length - 1][1],
+        interval[1]
+      );
     }
   }
-  return returnArr;
+
+  return mergedIntervals;
 };
 
 console.log(overlappingIntervals(sampleInput)); // [[1,3], [4,10], [20,25]]
