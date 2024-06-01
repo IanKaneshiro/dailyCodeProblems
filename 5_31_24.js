@@ -7,3 +7,19 @@ Given a mapping of digits to letters (as in a phone number), and a digit string,
 
 For example if {“2”: [“a”, “b”, “c”], 3: [“d”, “e”, “f”], …} then “23” should return [“ad”, “ae”, “af”, “bd”, “be”, “bf”, “cd”, “ce”, “cf"].
 */
+
+const comb = {
+  2: ["a", "b", "c"],
+  3: ["d", "e", "f"],
+};
+
+const phoneCombinations = (digits, numString) => {
+  const numsToMap = numString.split("");
+  let res = [];
+  for (let num of numsToMap) {
+    for (let val of comb[num]) {
+    }
+  }
+};
+
+console.log(phoneCombinations(comb, "23"));
