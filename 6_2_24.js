@@ -1,0 +1,11 @@
+// Good morning! Here's your coding interview problem for today.
+
+// This problem was asked by Google.
+
+// Invert a binary tree.
+
+// For example, given the following tree:
+
+function invertBinaryTree(root) {
+  return;
+}
