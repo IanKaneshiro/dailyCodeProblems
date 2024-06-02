@@ -32,16 +32,26 @@ seven.right = nine;
 
 function invertBinaryTree(root) {
   if (!root) return null;
+
+  const left = invertBinaryTree(root.left);
+  const right = invertBinaryTree(root.right);
+
+  root.left = right;
+  root.right = left;
+  return root;
 }
 
 function printTree(root) {
   let queue = [root];
 
-  while (queue.length) {
-    const current = stack.pop();
-    console.log(current);
+  while (queue.length > 0) {
+    const current = queue.pop();
+    console.log(current.val);
 
-    if (current.left) queue.shift(current.left);
-    if (current.right) queue.shift(current.right);
+    if (current.left) queue.unshift(current.left);
+    if (current.right) queue.unshift(current.right);
   }
 }
+
+invertBinaryTree(four);
+printTree(four);
