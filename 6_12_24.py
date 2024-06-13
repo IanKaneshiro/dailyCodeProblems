@@ -1,8 +1,7 @@
 functions = []
 
 for i in range(10):
-    val = i
-    functions.append(lambda: val)
+    functions.append(lambda i=i: i )
 
 for f in functions:
     print(f())
