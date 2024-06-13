@@ -10,3 +10,13 @@
 
 // for f in functions:
 //     print(f())
+
+const functions = [];
+
+for (let i = 0; i < 10; i++) {
+  functions.push(() => i);
+}
+
+for (let f of functions) {
+  console.log(f());
+}
