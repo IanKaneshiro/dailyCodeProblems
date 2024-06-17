@@ -14,3 +14,9 @@
 //   ['A','D','E','E']
 // ]
 // exists(board, "ABCCED") returns true, exists(board, "SEE") returns true, exists(board, "ABCB") returns false.
+
+function wordExists(board, word) {
+  return;
+}
+
+module.exports = wordExists;
