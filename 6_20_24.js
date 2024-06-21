@@ -16,3 +16,9 @@
 
 // [a, b] < [c, d]
 // If a < c OR a==c AND b < d.
+
+function sumPrimeNumbers(num) {
+  return;
+}
+
+module.exports = sumPrimeNumbers;
