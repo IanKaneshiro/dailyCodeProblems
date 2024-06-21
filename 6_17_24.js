@@ -16,7 +16,7 @@
 // exists(board, "ABCCED") returns true, exists(board, "SEE") returns true, exists(board, "ABCB") returns false.
 
 function wordExists(board, word) {
-  return;
+  return true;
 }
 
 module.exports = wordExists;
