@@ -26,5 +26,10 @@ three.left = four;
 three.right = five;
 
 function traverseTree(root) {
-  return;
+  if (!root) return;
+  console.log(root.val);
+  traverseTree(root.left);
+  traverseTree(root.right);
 }
+
+traverseTree(one);
