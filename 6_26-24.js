@@ -33,3 +33,5 @@ function traverseTree(root) {
 }
 
 traverseTree(one);
+
+module.exports = traverseTree;
